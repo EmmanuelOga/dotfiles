@@ -1,0 +1,20 @@
+vbell on
+deflogin off
+#escape ^ww
+
+startup_message off
+
+term screen-256color
+termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
+termcapinfo rxvt-unicode ti@:te@     #enable SHIFT-PGUP / SHIFT-PGDOWN scroll
+
+hardstatus on
+hardstatus string "%{.kc}%-w%{.kc}%n*%t%{-}%+w %=%c %d/%m/%Y" #black+cyan+normal
+
+backtick 1 5 5 true
+
+caption string "%{= kw}%Y-%m-%d;%c %{= kw}%-Lw%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+Lw%1`"
+caption always
+
+bindkey "^[Od" prev  # change window with ctrl-left
+bindkey "^[Oc" next  # change window with ctrl-right
