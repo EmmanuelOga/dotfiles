@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+mkdir -p $HOME/.flagd
+
+path="$HOME/.flagd/$2"
+
+if [ $1 = 'get' ]
+then
+  test -e $path; exit $?
+
+else if [ $1 = 'unset' ]
+then
+  rm -f $path; exit 1
+
+else if [ $1 = 'list' ]
+then
+  ls $HOME/.flagd
+
+else
+  touch $path; exit 0
+
+fi
+fi
+fi
