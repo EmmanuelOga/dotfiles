@@ -21,10 +21,9 @@ alias ll="tree -L 1 -C -h -a -F -p --dirsfirst -A"
 alias ls='ls --group-directories-first --time-style=+"%Y-%m-%d %H:%M" --color=auto -F'
 alias vdir='vdir --color=auto'
 
-alias ms="mysql -uroot -proot"
+alias msp="mysql -uroot -proot"
 alias msa="mysqladmin -uroot -proot"
 alias mse="mysql -uroot -proot -B -e"
-alias mser="mysql -uroot -proot -B -e"
 
 alias reload='source ~/.bashrc'
 alias rhino='java -jar /usr/share/java/js.jar'
