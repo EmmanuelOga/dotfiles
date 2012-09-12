@@ -52,7 +52,7 @@ bash_prompt() {
     local USER=""
     [ $UID -eq "0" ] && USER="\u "
 
-    PS1="$TITLEBAR${Y}${UC}${USER}${Y}${EMR}\w${Y}${EMR}\$(__git_ps1) \$(~/.rvm/bin/rvm-prompt)\n${EMW}▸ ${NONE}"
+    PS1="$TITLEBAR${Y}${UC}${USER}${Y}${EMR}\w${Y}${EMR}\$(__git_ps1) ${W}\$(~/.rvm/bin/rvm-prompt)\n${EMW}▸ ${NONE}"
 }
 
 bash_prompt
