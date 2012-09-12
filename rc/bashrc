@@ -49,6 +49,7 @@ xterm*|rxvt*)
     ;;
 esac
 
+[[ -s "$HOME/dotfiles/local/bash/misc.sh"  ]] && . "$HOME/dotfiles/local/bash/misc.sh"
 [[ -s "$HOME/dotfiles/bash/aliases.sh"     ]] && . "$HOME/dotfiles/bash/aliases.sh"
 [[ -s "$HOME/dotfiles/bash/bash_prompt.sh" ]] && . "$HOME/dotfiles/bash/bash_prompt.sh"
 
