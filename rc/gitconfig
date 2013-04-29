@@ -40,3 +40,5 @@
 
 [apply]
 	whitespace = fix
+[push]
+	default = matching
