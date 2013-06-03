@@ -51,9 +51,12 @@ xterm*|rxvt*)
     ;;
 esac
 
+PATH=/home/emmanuel/Applications/node-v0.10.9:$PATH
+
 [[ -s "$HOME/dotfiles/local/bash/misc.sh"  ]] && . "$HOME/dotfiles/local/bash/misc.sh"
 [[ -s "$HOME/dotfiles/bash/aliases.sh"     ]] && . "$HOME/dotfiles/bash/aliases.sh"
 [[ -s "$HOME/dotfiles/bash/bash_prompt.sh" ]] && . "$HOME/dotfiles/bash/bash_prompt.sh"
+[[ -s "$HOME/dotfiles/local/bash/local.sh" ]] && . "$HOME/dotfiles/local/bash/local.sh"
 
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 . /etc/bash_completion
@@ -61,7 +64,3 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin                                       # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
-
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-[[ -s "$HOME/dotfiles/local/bash/local.sh" ]] && . "$HOME/dotfiles/local/bash/local.sh"
