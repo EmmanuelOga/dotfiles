@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+JSON.parse($stdin.read).each do |k, v|
+  puts %Q{<script src="#{v}"></script>}
+end
