@@ -24,6 +24,8 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	addp = add -p
 	addi = add -i
+	cb = rev-parse --abbrev-ref HEAD
+	pcb = ! sh -c '(git push origin $(git cb))'
 
 [user]
 	name = Emmanuel Oga
@@ -40,5 +42,6 @@
 
 [apply]
 	whitespace = fix
+
 [push]
 	default = matching
