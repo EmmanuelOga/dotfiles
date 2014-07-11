@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-xdg-open `gem spec $1 homepage | cut -b5-` >&/dev/null

@@ -1,66 +1,41 @@
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
-
-# If not running interactively, don't do anything
+################################################################################
+# If not running interactively, exit.
+################################################################################
 [ -z "$PS1" ] && return
 
-settitle() {
-    printf "\033k$1\033\\"
-}
+# Java
+# Turn on antialias on java apps.
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+# export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 
-EDITOR=vim
-HISTCONTROL=ignoreboth
+# RVM
+PATH=$PATH:$HOME/.rvm/bin                                       # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
-# export RUBYOPT='-w'
-export MANPAGER="most -c"
+# Node
+[[ -s /usr/local/google/home/emmanueloga/.nvm/nvm.sh ]] && . /usr/local/google/home/emmanueloga/.nvm/nvm.sh
+alias ne='nvm use 0.10; PATH=$(npm bin):$PATH'
 
-# append to the history file, don't overwrite it
-# shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-if [ -d ~/dotfiles/bin ]       ;  then PATH=~/dotfiles/bin:"${PATH}" ; fi
-if [ -d ~/dotfiles/local/bin ] ;  then PATH=~/dotfiles/local/bin:"${PATH}" ; fi
-#if [ -d ~/.luarocks/bin ] ; then PATH=~/.luarocks/bin:"${PATH}" ; fi
-
-PATH=~/wildfireapp/suite/shared:"${PATH}"
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-# shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-PATH=/home/emmanuel/Applications/node-v0.10.9:$PATH
-
-[[ -s "$HOME/dotfiles/local/bash/misc.sh"  ]] && . "$HOME/dotfiles/local/bash/misc.sh"
-[[ -s "$HOME/dotfiles/bash/aliases.sh"     ]] && . "$HOME/dotfiles/bash/aliases.sh"
-[[ -s "$HOME/dotfiles/bash/bash_prompt.sh" ]] && . "$HOME/dotfiles/bash/bash_prompt.sh"
-[[ -s "$HOME/dotfiles/local/bash/local.sh" ]] && . "$HOME/dotfiles/local/bash/local.sh"
-
+# Bash completion
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 . /etc/bash_completion
 fi
 
-PATH=$PATH:$HOME/.rvm/bin                                       # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+export EDITOR=vim
+export HISTCONTROL=ignoreboth
+export MANPAGER="most -c"
+export TERM="xterm-256color"
+export HISTSIZE=999999
+export HISTFILESIZE=9999999
+
+shopt -s histappend   # append to the history file, don't overwrite it.
+shopt -s checkwinsize # update the values of LINES and COLUMNS if necesary.
+shopt -s globstar     # enable the ** glob pattern.
+
+[[ -s "$HOME/dotfiles/local/bash/wildfire.sh"  ]] && . "$HOME/dotfiles/local/bash/wildfire.sh"
+[[ -s "$HOME/dotfiles/local/bash/google"  ]] && . "$HOME/dotfiles/local/bash/google"
+[[ -s "$HOME/dotfiles/bash/aliases.sh"     ]] && . "$HOME/dotfiles/bash/aliases.sh"
+[[ -s "$HOME/dotfiles/bash/bash_prompt.sh" ]] && . "$HOME/dotfiles/bash/bash_prompt.sh"
+
+if [ -d ~/dotfiles/bin ]       ;  then PATH=~/dotfiles/bin:"${PATH}" ; fi
+if [ -d ~/dotfiles/local/bin ] ;  then PATH=~/dotfiles/local/bin:"${PATH}" ; fi
