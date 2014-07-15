@@ -15,7 +15,7 @@ alias hosts="gksu gvim /etc/hosts"
 alias ifind='find -type f | grep -i'
 alias la='ls --group-directories-first --time-style=+"%Y-%m-%d %H:%M" --color=auto -F -la'
 alias ls='ls --group-directories-first --time-style=+"%Y-%m-%d %H:%M" --color=auto -F'
-alias ll='ls --group-directories-first --color=auto -F -la'
+alias ll='ls --group-directories-first --color=auto -F -l'
 alias l='ls --group-directories-first --color=auto -F'
 alias rake="rake --trace"
 alias rezet="xrandr -s 0 --orientation normal" # restore screen size to screen's best
