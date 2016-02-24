@@ -5,8 +5,10 @@
 
 # Java
 # Turn on antialias on java apps.
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true"
+
 # export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+export G4MULTIDIFF=1 P4DIFF='bash -c "meld \${@//:/--diff}"' g4 diff "$@"
 
 # RVM
 PATH=$PATH:$HOME/.rvm/bin                                       # Add RVM to PATH for scripting
@@ -34,8 +36,18 @@ shopt -s globstar     # enable the ** glob pattern.
 
 [[ -s "$HOME/dotfiles/local/bash/wildfire.sh"  ]] && . "$HOME/dotfiles/local/bash/wildfire.sh"
 [[ -s "$HOME/dotfiles/local/bash/google"  ]] && . "$HOME/dotfiles/local/bash/google"
+
 [[ -s "$HOME/dotfiles/bash/aliases.sh"     ]] && . "$HOME/dotfiles/bash/aliases.sh"
 [[ -s "$HOME/dotfiles/bash/bash_prompt.sh" ]] && . "$HOME/dotfiles/bash/bash_prompt.sh"
 
 if [ -d ~/dotfiles/bin ]       ;  then PATH=~/dotfiles/bin:"${PATH}" ; fi
 if [ -d ~/dotfiles/local/bin ] ;  then PATH=~/dotfiles/local/bin:"${PATH}" ; fi
+
+alias boq=/google/data/ro/teams/boq-infra-tools/boq
+alias iblaze=/google/data/ro/users/ma/martinprobst/iblaze
+alias tidy_dart=/home/build/google3/ads/apps/video/tools/tidy_dart
+
+export PATH=/usr/lib/google-dartlang/bin:${PATH}
+export PATH=/usr/local/google/home/emmanueloga/Applications/the_silver_searcher:${PATH}
+
+alias pastebin="/google/src/head/depot/eng/tools/pastebin"

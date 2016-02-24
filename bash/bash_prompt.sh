@@ -5,8 +5,6 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM="auto"
 
 bash_prompt() {
-  local FILES_INFO="(\$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed 's: ::g') files, \$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //'))"
-
   local NONE="\[\033[0m\]"    # unsets color to term's fg color
 
   # regular colors
@@ -45,7 +43,7 @@ bash_prompt() {
   local USER=""
   [ $UID -eq "0" ] && USER="\u "
 
-  PS1="${Y}${UC}${USER}${Y}${EMR}\w${Y}${EMR}\$(__git_ps1) ${W}\$(~/.rvm/bin/rvm-prompt)\n${EMW}▸ ${NONE}"
+  PS1="${Y}${UC}${USER}${Y}${EMR}\w${Y}${EMR}\$(__git_ps1) ${W}\n${EMW}▸ ${NONE}"
 }
 
 bash_prompt
