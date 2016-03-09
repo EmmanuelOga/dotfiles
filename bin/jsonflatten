@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+d = JSON.parse($stdin.read);
+
+
+def flatten(data, path, result)
+  path = path || []
+  result = result || {}
+  data.each do |k, v|
+    val = data[k]
+    _path = path + [k]
+    if val.is_a?(Hash) then
+      flatten(val, _path, result)
+    else
+      result[_path.join('.')] = val
+    end
+  end
+  result
+end
+
+flatten(d, nil, nil).each do |k, v|
+  puts "#{k}: #{v}"
+end
+
