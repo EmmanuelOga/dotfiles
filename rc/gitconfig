@@ -29,7 +29,7 @@
 
 [user]
 	name = Emmanuel Oga
-	email = EmmanuelOga@google.com
+	email = contact@emmanueloga.com
 
 [diff "ruby"]
 	funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
