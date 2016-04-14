@@ -8,11 +8,21 @@ d = JSON.parse($stdin.read);
 def flatten(data, path, result)
   path = path || []
   result = result || {}
+
+  if !(data.is_a?(Hash) || data.is_a?(Array))
+    result[path.join('.')] = data
+    return result
+  end
+
   data.each do |k, v|
     val = data[k]
     _path = path + [k]
     if val.is_a?(Hash) then
       flatten(val, _path, result)
+    elsif val.is_a?(Array) then
+      val.each_with_index do |sub, index|
+        flatten(sub, _path + [index], result)
+      end
     else
       result[_path.join('.')] = val
     end

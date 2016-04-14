@@ -46,6 +46,7 @@ if [ -d ~/dotfiles/local/bin ] ;  then PATH=~/dotfiles/local/bin:"${PATH}" ; fi
 alias boq=/google/data/ro/teams/boq-infra-tools/boq
 alias iblaze=/google/data/ro/users/ma/martinprobst/iblaze
 alias tidy_dart=/home/build/google3/ads/apps/video/tools/tidy_dart
+alias gflog=/google/data/ro/teams/gfiber/gflog
 
 export PATH=/usr/lib/google-dartlang/bin:${PATH}
 export PATH=/usr/local/google/home/emmanueloga/Applications/the_silver_searcher:${PATH}
